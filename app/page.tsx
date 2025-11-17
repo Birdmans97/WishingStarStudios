@@ -7,7 +7,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-            Wishing Star Studios
+            WishingStarRich
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 text-slate-300">
             Richard Hernandez - Artist & Craftsman

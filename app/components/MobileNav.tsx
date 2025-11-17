@@ -15,7 +15,7 @@ export default function MobileNav() {
             className="text-xl sm:text-2xl font-bold hover:text-primary-400 transition-colors"
             onClick={() => setIsOpen(false)}
           >
-            Wishing Star Studios
+            WishingStarRich
           </Link>
           
           {/* Desktop Navigation */}

@@ -7,7 +7,7 @@ import MobileNav from './components/MobileNav'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Wishing Star Studios - Richard Hernandez',
+  title: 'WishingStarRich - Richard Hernandez',
   description: 'Self-employed artist and craftsman specializing in modeling, painting, restorations, and custom work by Richard Hernandez',
 }
 
@@ -28,7 +28,7 @@ export default function RootLayout({
         </main>
         <footer className="bg-slate-900 text-white py-6 sm:py-8 mt-8 sm:mt-12 md:mt-16">
           <div className="container mx-auto px-4 text-center">
-            <p className="mb-3 sm:mb-4 text-sm sm:text-base">&copy; {new Date().getFullYear()} Wishing Star Studios - Richard Hernandez</p>
+            <p className="mb-3 sm:mb-4 text-sm sm:text-base">&copy; {new Date().getFullYear()} WishingStarRich - Richard Hernandez</p>
             <div className="flex justify-center gap-4 flex-wrap">
               <a 
                 href="https://www.instagram.com/wishingstar_rich/" 
