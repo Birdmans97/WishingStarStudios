@@ -10,20 +10,33 @@ elif [ -f .next/standalone/server.js ]; then
   echo "Starting server from standalone directory (Coolify auto-build scenario)..."
   echo "Current directory: $(pwd)"
   echo "Checking static files..."
-  if [ -d .next/static ]; then
-    echo "✓ Static files found at .next/static"
-    ls -la .next/static | head -5
-  else
-    echo "⚠ Warning: .next/static directory not found!"
+  
+  # Ensure static files are accessible to the standalone server
+  # The standalone server.js needs .next/static relative to where it runs
+  # Create symlink in standalone directory if static files exist in build root
+  if [ -d .next/static ] && [ ! -d .next/standalone/.next ]; then
+    echo "Creating .next directory in standalone for static files..."
+    mkdir -p .next/standalone/.next
+    # Create symlink to static files
+    ln -sf ../../.next/static .next/standalone/.next/static || {
+      echo "Symlink failed, copying static files..."
+      cp -r .next/static .next/standalone/.next/static
+    }
   fi
-  if [ -d public ]; then
-    echo "✓ Public directory found"
-  else
-    echo "⚠ Warning: public directory not found!"
+  
+  # Ensure public directory is accessible
+  if [ -d public ] && [ ! -d .next/standalone/public ]; then
+    echo "Linking public directory to standalone..."
+    ln -sf ../../public .next/standalone/public || {
+      echo "Symlink failed, copying public directory..."
+      cp -r public .next/standalone/public
+    }
   fi
-  # Run from the build root so static files at .next/static are accessible
-  # The standalone server.js expects .next/static to be relative to where it was built
-  exec node .next/standalone/server.js
+  
+  # Change to standalone directory and run server
+  # This ensures all paths are relative to where server.js expects them
+  cd .next/standalone
+  exec node server.js
 else
   echo "ERROR: server.js not found in either location!"
   echo "Current directory: $(pwd)"
