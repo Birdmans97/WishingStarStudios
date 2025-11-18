@@ -36,9 +36,11 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/start.sh ./start.sh
 
-# Verify server.js exists
+# Verify server.js exists and make start.sh executable
 RUN ls -la /app/server.js || (echo "ERROR: server.js not found in standalone output!" && ls -la /app/ && exit 1)
+RUN chmod +x /app/start.sh
 
 USER nextjs
 
@@ -47,6 +49,6 @@ EXPOSE 3004
 ENV PORT=3004
 ENV HOSTNAME="0.0.0.0"
 
-# Next.js standalone mode: server.js is in the root after copying .next/standalone
-CMD ["node", "server.js"]
+# Use start.sh which handles both Dockerfile and auto-build scenarios
+CMD ["./start.sh"]
 

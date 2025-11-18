@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev -p 3004",
     "build": "next build",
-    "start": "sh -c 'if [ -f .next/standalone/server.js ]; then node .next/standalone/server.js; else node server.js; fi'",
+    "start": "./start.sh",
     "lint": "next lint"
   },
   "dependencies": {
