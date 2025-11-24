@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'WishingStarRich - Richard Hernandez',
-  description: 'Self-employed artist and craftsman specializing in modeling, painting, restorations, and custom work by Richard Hernandez',
+  description: 'Self-employed artist and craftsman located in Ventura County, specializing in modeling, painting, restorations, and custom work by Richard Hernandez',
 }
 
 export default function RootLayout({

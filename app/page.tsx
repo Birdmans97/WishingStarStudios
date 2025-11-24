@@ -10,7 +10,7 @@ export default function Home() {
             WishingStarRich
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 text-slate-300">
-            Richard Hernandez - Artist & Craftsman
+            Richard Hernandez - Artist & Craftsman Located in Ventura County
           </p>
           <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-slate-400 px-2">
             Specializing in modeling, painting, restorations, and custom creations
